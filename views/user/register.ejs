@@ -1,5 +1,32 @@
 <%- include("../partials/header.ejs"); %>
 
-<h1>Hello</h1>
+<div class="section section-header">
+    <div class="parallax filter filter-color-red">
+        <div class="image"
+            style="background: #000;">
+        </div>
+        <div class="container">
+            <div class="content">
+                <div class="login-title-area">
+                    <h1 class="title-modern">Sign Up</h1>
+                    <div class="separator line-separator">♦</div>
+                </div>
+                <form acction="#" method="POST" class="sign-in-form">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="E-mail">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <input type="submit" value="Register" class="btn btn-white">
+                </form>
+                <h3 class="reg-info">Already have an account? <a href="/login">Login now!</a></h3>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <%- include("../partials/footer.ejs"); %>
