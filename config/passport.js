@@ -21,8 +21,8 @@ passport.use("local.signup", new localStrategy({
     passwordField: "password",
     passReqToCallback: true
 }, function(req, email, password, done){
-    req.checkBody("email", "Invalid email").notEmpty().isEmail();
-    req.checkBody("password", "Invalid password").notEmpty().isLength({min:4});
+    req.checkBody("email").notEmpty().withMessage("Email is required").isEmail().withMessage("Invalid email");
+    req.checkBody("password").notEmpty().withMessage("Password is required").isLength({min: 8, max: 16}).withMessage("Password must be between 8 to 16 characters");
     var errors = req.validationErrors();
     if (errors) {
         var messages = [];
@@ -59,8 +59,8 @@ passport.use("local.signin", new localStrategy({
     passwordField: "password",
     passReqToCallback: true
 }, function(req, email, password, done){
-    req.checkBody("email", "Invalid email").notEmpty().isEmail();
-    req.checkBody("password", "Invalid password").notEmpty().isLength({min:4});
+    req.checkBody("email").notEmpty().withMessage("Email is required").isEmail().withMessage("Invalid email");
+    req.checkBody("password").notEmpty().withMessage("Password is required").isLength({min: 8, max: 16}).withMessage("Password must be between 8 to 16 characters");
     var errors = req.validationErrors();
     if (errors) {
         var messages = [];
@@ -79,7 +79,7 @@ passport.use("local.signin", new localStrategy({
             return done(null, false, {message: "No user found."});
         }
         if (!foundUser.validPassword(password)) {
-            return done(null, false, {message: "Wrong password."});
+            return done(null, false, {message: "Wrong password"});
         }
         return done(null, foundUser);
     });
