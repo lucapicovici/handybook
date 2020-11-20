@@ -4,13 +4,39 @@ var express      = require("express"),
     bodyParser   = require("body-parser"),
     flash        = require("connect-flash"),
     validator    = require("express-validator"),
+    session      = require("express-session"),
     app          = express();
 
-var indexRoutes = require("./routes/index.js");
+var indexRoutes = require("./routes/index.js"),
+    userRoutes  = require("./routes/user.js");
+require("./config/passport.js");
+
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useUnifiedTopology", true);
+var dbUrl = process.env.DATABASEURL || "mongodb://localhost/handybook";
+mongoose.connect(dbUrl);
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(session({
+    secret: "This app functionality is really cool so far",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 180 * 60 * 1000 }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(validator()); // After bodyParser
+app.use(flash());
 
+app.use(function(req, res, next){
+    res.locals.login = req.isAuthenticated();
+    res.locals.user = req.user;
+    next();
+});
+
+app.use("/user", userRoutes);
 app.use("/", indexRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
