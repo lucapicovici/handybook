@@ -4,6 +4,7 @@ var express  = require("express"),
 
 // User profile - must be put before notLoggedIn middleware
 router.get("/profile", isLoggedIn, function(req, res){
+    console.log(req.session);
     res.send("User profile page");
 });
 

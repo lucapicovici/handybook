@@ -11,18 +11,18 @@
                     <h1 class="title-modern">Sign Up</h1>
                     <div class="separator line-separator">♦</div>
                 </div>
-                <form acction="#" method="POST" class="sign-in-form">
+                <form action="/user/register" method="POST" class="sign-in-form">
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="E-mail">
+                        <input type="text" placeholder="E-mail" name="email">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" name="password">
                     </div>
                     <input type="submit" value="Register" class="btn btn-white">
                 </form>
-                <h3 class="reg-info">Already have an account? <a href="/login">Login now!</a></h3>
+                <h3 class="reg-info">Already have an account? <a href="/user/login">Login now!</a></h3>
             </div>
 
         </div>
