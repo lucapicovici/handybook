@@ -1,11 +1,12 @@
-var express      = require("express"),
-    mongoose     = require("mongoose"),
-    passport     = require("passport"),
-    bodyParser   = require("body-parser"),
-    flash        = require("connect-flash"),
-    validator    = require("express-validator"),
-    session      = require("express-session"),
-    app          = express();
+var express        = require("express"),
+    mongoose       = require("mongoose"),
+    passport       = require("passport"),
+    bodyParser     = require("body-parser"),
+    flash          = require("connect-flash"),
+    validator      = require("express-validator"),
+    session        = require("express-session"),
+    methodOverride = require('method-override'),
+    app            = express();
 
 var indexRoutes = require("./routes/index.js"),
     userRoutes  = require("./routes/user.js");
@@ -29,6 +30,7 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(validator()); // After bodyParser
 app.use(flash());
+app.use(methodOverride("_method"));
 
 app.use(function(req, res, next){
     res.locals.login = req.isAuthenticated();

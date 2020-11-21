@@ -1,0 +1,36 @@
+<%- include("../partials/header.ejs"); %>
+
+
+<div class="container">
+    <h1>Add your service</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/mechanics" method="POST" style="height: 700px;">
+                <div class="form-group">
+                  <label for="author">Author name</label>
+                  <input type="text" class="form-control" id="author" name="service[author]" placeholder="Author name" required>
+                </div>
+                <div class="form-group">
+                  <label for="title">Service title</label>
+                  <input type="text" class="form-control" id="title" name="service[title]" placeholder="Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="about">Describe your service</label>
+                    <textarea class="form-control" id="about" rows="3" name="service[about]" placeholder="About" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="hourlyRate">Hourly rate (optional)</label>
+                    <input type="text" class="form-control" id="hourlyRate" name="service[hourlyRate]" placeholder="$15/h">
+                </div>
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input type="text" class="form-control" id="photo" name="service[photo]" placeholder="Photo URL" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-top: 50px;">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs"); %>

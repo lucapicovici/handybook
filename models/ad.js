@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var adSchema = mongoose.Schema({
-    adId: {type: mongoose.Schema.Types.ObjectId, ref: "Mechanic"},
+    adId: {type: mongoose.Schema.Types.ObjectId, ref: "Service"},
     expireAt: {
         type: Date,
         default: Date.now,

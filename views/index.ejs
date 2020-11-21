@@ -59,35 +59,37 @@
         <div class="row">
 
 <!-- AICI IL BAGI IN FOREACH -->
-            <div class="col-md-3">
-                <div class="card">
-                    <article class="blog-grid-itm__text">
-                        <div class="article-bg">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80">
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="article-info">
+            <% services.forEach(function(service){ %>
+                <div class="col-md-3">
+                    <div class="card">
+                        <article class="blog-grid-itm__text">
+                            <div class="article-bg">
                                 <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                                    <span>Cosmin</span>
+                                    <img src = <%= service.photos[0].src %>>
                                 </a>
                             </div>
-                            <a href="#">
-                                <h4>Grafician caramida</h4>
-                            </a>
-                            <div class="article-content">
+                            <div class="card-info">
+                                <div class="article-info">
+                                    <a href="#">
+                                        <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
+                                        <span><%= service.author.name %></span>
+                                    </a>
+                                </div>
                                 <a href="#">
-                                    <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
+                                    <h4><%= service.title %></h4>
                                 </a>
+                                <div class="article-content">
+                                    <a href="#">
+                                        <p><%= service.about %></p>
+                                    </a>
+                                </div>
+                                <span class="author-price"><%= service.hourlyRate %></span>
+                                <span class="author-text">STARTING AT</span>
                             </div>
-                            <span class="author-price">$69/h</span>
-                            <span class="author-text">STARTING AT</span>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
                 </div>
-            </div>
+            <% }); %>
 <!-- AICI IL BAGI IN FOREACH -->
             
         </div>
