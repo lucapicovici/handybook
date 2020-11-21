@@ -5,7 +5,7 @@ var express  = require("express"),
 // User profile - must be put before notLoggedIn middleware
 router.get("/profile", isLoggedIn, function(req, res){
     console.log(req.session);
-    res.send("User profile page");
+    res.render("ucp/index");
 });
 
 // Logout
@@ -33,7 +33,7 @@ router.post("/register", passport.authenticate("local.signup", {
         req.session.oldUrl = null;
         res.redirect(oldUrl);
     } else {
-        res.redirect("/user/profile");
+        res.redirect("/");
     }
 });
 
@@ -51,7 +51,7 @@ router.post("/login", passport.authenticate("local.signin", {
         req.session.oldUrl = null;
         res.redirect(oldUrl);
     } else {
-        res.redirect("/user/profile");
+        res.redirect("/");
     }
 });
 

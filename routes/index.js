@@ -5,12 +5,15 @@ router.get("/", function(req, res){
     res.render("index");
 });
 
-router.get("/acp", function(req, res){
+router.get("/acp", isLoggedIn, function(req, res){
     res.render("acp/index");
 });
 
-router.get("/ucp", function(req, res){
-    res.render("ucp/index");
-});
+function isLoggedIn(req, res, next){
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/");
+};
 
 module.exports = router;
