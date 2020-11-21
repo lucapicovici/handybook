@@ -17,6 +17,7 @@
       display: block;
       color: white;
       padding: 16px 30px;
+      outline: none;
       text-decoration: none;
       &:hover {
         color: cyan;
@@ -136,7 +137,17 @@
         font-size: 18px;
       }
     }
-    .acp .navbar-name i {
-      display: inline-block;
+    .acp {
+      .navbar-name {
+        a {
+          float: right;
+        }
+        span {
+          float: left;
+        }
+        i {
+          display: inline-block;
+        }
+      }
     }
   }
