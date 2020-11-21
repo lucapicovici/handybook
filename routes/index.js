@@ -13,4 +13,8 @@ router.get("/register", function(req, res){
     res.render("user/register");
 });
 
+router.get("/acp", function(req, res){
+    res.render("acp/index");
+});
+
 module.exports = router;
