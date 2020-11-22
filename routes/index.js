@@ -102,7 +102,14 @@ router.put("/mechanics/:id", function(req, res){
 
 // SHOW
 router.get("/mechanics/:id", function(req, res){
-    res.send("Mechanic service with id " + req.params.id);
+    Service.findById(req.params.id, function(err, service){
+        if (err) {
+            console.log(err);
+            res.redirect("/");
+        } else {
+            res.render("services/show", {service: service});
+        }
+    });
 });
 
 // DESTROY (checkOwnership later)
@@ -119,10 +126,6 @@ router.delete("/mechanics/:id", function(req, res){
 			});
 		}
 	});
-});
-
-router.get("/ad", function(req, res){
-    res.render("ad");
 });
 
 router.get("/acp", isLoggedIn, function(req, res){
