@@ -23,29 +23,29 @@
                         </div>
                         <div class="card-info ad-card-info">
 
-                            <form action="#" method="POST">
+                            <form action="/user/profile/<%= user._id %>?_method=PUT" method="POST">
                                 <div class="form-group">
                                   <label for="username">Username</label>
-                                  <input type="text" class="form-control" id="author" name="service[author]" value="<%= service.author.name %>" placeholder="Author name" required>
+                                  <input type="text" class="form-control" id="username" name="profile[username]" value="<%= user.username %>" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                   <label for="name">Name</label>
-                                  <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
+                                  <input type="text" class="form-control" id="name" name="profile[name]" value="<%= user.name %>" placeholder="Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
+                                    <input type="text" class="form-control" id="phone" name="profile[phone]" value="<%= user.phone %>" placeholder="Phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="profession">Profession</label>
-                                    <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
+                                    <input type="text" class="form-control" id="profession" name="profile[profession]" value="<%= user.profession %>" placeholder="Profession">
                                 </div>
                                 <div class="form-group">
                                     <label for="skills">Skills</label>
-                                    <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
+                                    <input type="text" class="form-control" id="skills" name="profile[skills]" value="<%= user.skills %>" placeholder="Skills">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                              </form>
+                            </form>
 
                         </div>
                     </article>

@@ -76,7 +76,7 @@ router.get("/mechanics/:id/edit", isLoggedIn, checkServiceOwnership, function(re
     });
 });
 
-// UPDATE (checkOwnership later)
+// UPDATE
 router.put("/mechanics/:id", isLoggedIn, checkServiceOwnership, function(req, res){
     var formData = req.body.service;
     var newService = {
@@ -120,7 +120,7 @@ router.get("/mechanics/:id", function(req, res){
         });
 });
 
-// DESTROY (checkOwnership later)
+// DESTROY
 router.delete("/mechanics/:id", isLoggedIn, checkServiceOwnership, function(req, res){
 	Service.findByIdAndRemove(req.params.id, function(err, service){
 		if (err) {
@@ -154,7 +154,7 @@ function checkServiceOwnership(req, res, next) {
 		Service.findById(req.params.id, function(err, service){
 			if (err || !service) {
 				console.log(err);
-				alert("Service not found");
+				console.log("Service not found");
 				res.redirect("back");
 			} else {
 				// Does user own the service?
