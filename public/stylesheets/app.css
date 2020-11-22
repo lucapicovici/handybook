@@ -90,6 +90,7 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  word-break: break-word;
 }
 
 .sidebar {
@@ -516,6 +517,20 @@ article a:hover {
   padding: 2rem;
 }
 
+.fac-card .ad-card-info .info-desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.fac-card .ad-card-info .info-desc span .price-ads {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .fac-card .ad-card-info hr {
   border-top: 1px solid #dcdcdc;
 }
@@ -641,8 +656,8 @@ article a:hover {
 .profile-edit-btn {
   border: none;
   border-radius: 1.5rem;
-  width: 70%;
-  padding: 2%;
+  width: 100%;
+  padding: 2% 10px;
   font-weight: 600;
   color: #0a66c2;
   cursor: pointer;
@@ -655,9 +670,14 @@ article a:hover {
 }
 
 .proile-rating span {
-  color: #495057;
+  color: #f90;
   font-size: 20px;
   font-weight: 600;
+}
+
+.proile-rating i {
+  color: #f90;
+  padding: 0 5px;
 }
 
 .profile-head .nav-tabs {
@@ -784,5 +804,36 @@ article a:hover {
 
 .photoBtnChange {
   color: white;
+}
+
+.fix-distance-ucp {
+  margin-top: 30px;
+  border-radius: 6px;
+}
+
+.fix-distance-ucp input[type=text], .fix-distance-ucp select, .fix-distance-ucp textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.fix-distance-ucp input[type=submit] {
+  width: 100%;
+  background-color: #0d4072;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fix-distance-ucp input[type=submit]:hover {
+  background-color: #0a345e;
 }
 /*# sourceMappingURL=app.css.map */
