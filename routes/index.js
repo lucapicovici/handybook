@@ -109,19 +109,15 @@ router.get("/mechanics/:id", function(req, res){
                 console.log(err);
                 res.redirect("/");
             } else {
-                res.render("services/show", {service: service});
-                console.log(service);
+                Service.find({}, function(err, services){
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.render("services/show", {service: service, services: services});
+                    }
+                })
             }
         });
-
-    // Service.findById(req.params.id, function(err, service){
-    //     if (err) {
-    //         console.log(err);
-    //         res.redirect("/");
-    //     } else {
-    //         res.render("services/show", {service: service});
-    //     }
-    // });
 });
 
 // DESTROY (checkOwnership later)
