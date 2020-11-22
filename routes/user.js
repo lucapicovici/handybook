@@ -53,7 +53,8 @@ router.put("/profile/:id", isLoggedIn, checkProfileOwnership, function(req, res)
             name: formData.name,
             phone: formData.phone,
             profession: formData.profession,
-            skills: formData.skills
+            skills: formData.skills,
+            photo: formData.photo
         };
         
         User.findByIdAndUpdate(req.params.id, newProfile, function(err, user){

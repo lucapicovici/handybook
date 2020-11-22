@@ -14,35 +14,23 @@
         <div class="acp-container">
             <table>
                 <tr>
-                    <th>Helo</th>
-                    <th>From</th>
-                    <th>Other</th>
-                    <th>Side</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Profession</th>
+                    <th>Skills</th>
                 </tr>
-                <tr>
-                    <td>Bau</td>
-                    <td>Miau</td>
-                    <td>Hau</td>
-                    <td>CAU</td>
-                </tr>
-                <tr>
-                    <td>Bau</td>
-                    <td>Miau</td>
-                    <td>Hau</td>
-                    <td>CAU</td>
-                </tr>
-                <tr>
-                    <td>Bau</td>
-                    <td>Miau</td>
-                    <td>Hau</td>
-                    <td>CAU</td>
-                </tr>
-                <tr>
-                    <td>Bau</td>
-                    <td>Miau</td>
-                    <td>Hau</td>
-                    <td>CAU</td>
-                </tr>
+                <% users.forEach(function(user){ %>
+                    <tr>
+                        <td><%= user.email %></td>
+                        <td><%= user.username %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.phone %></td>
+                        <td><%= user.profession %></td>
+                        <td><%= user.skills %></td>
+                    </tr>
+                <% }) %>
             </table>
         </div>
     </div>

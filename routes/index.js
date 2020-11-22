@@ -2,7 +2,8 @@ var express  = require("express"),
     mongoose = require("mongoose"),
     router   = express.Router();
 
-var Service = require("../models/service.js");
+var Service = require("../models/service.js"),
+    User    = require("../models/user.js");
 
 router.get("/", function(req, res){
     // Service.create({
@@ -25,13 +26,15 @@ router.get("/", function(req, res){
     //     }
     // });
 
-    Service.find({}, function(err, services){
+    Service.find({})
+    .populate("author.id")
+    .exec(function(err, services){
         if (err) {
             console.log(err);
         } else {
             res.render("index", {services: services});
         }
-    })
+    });
 });
 
 // NEW
@@ -109,13 +112,15 @@ router.get("/mechanics/:id", function(req, res){
                 console.log(err);
                 res.redirect("/");
             } else {
-                Service.find({}, function(err, services){
+                Service.find({})
+                .populate("author.id")
+                .exec(function(err, services){
                     if (err) {
                         console.log(err);
                     } else {
                         res.render("services/show", {service: service, services: services});
                     }
-                })
+                });
             }
         });
 });
@@ -138,7 +143,13 @@ router.delete("/mechanics/:id", isLoggedIn, checkServiceOwnership, function(req,
 });
 
 router.get("/acp", isLoggedIn, function(req, res){
-    res.render("acp/index");
+    User.find({}, function(err, users){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("acp/index", {users: users});
+        }
+    })
 });
 
 
