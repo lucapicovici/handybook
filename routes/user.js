@@ -2,10 +2,22 @@ var express  = require("express"),
     router   = express.Router(),
     passport = require("passport");
 
+var User = require("../models/user.js");
+
 // User profile - must be put before notLoggedIn middleware
 router.get("/profile", isLoggedIn, function(req, res){
     console.log(req.session);
     res.render("ucp/index");
+});
+
+router.get("/profile/:id", isLoggedIn, function(req, res){
+    User.findById(req.params.id, function(err, user){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("ucp/index", {user: user});
+        }
+    })
 });
 
 // Logout

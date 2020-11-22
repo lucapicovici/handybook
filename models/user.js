@@ -3,7 +3,13 @@ var mongoose = require("mongoose"),
 
 var userSchema = mongoose.Schema({
     email: {type: String, required: true},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    rating: {type: Number},
+    username: {type: String},
+    name: {type: String},
+    phone: {type: String},
+    profession: {type: String},
+    skills: {name: String}
 });
 
 userSchema.methods.encryptPassword = function(password) {

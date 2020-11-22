@@ -102,14 +102,26 @@ router.put("/mechanics/:id", isLoggedIn, checkServiceOwnership, function(req, re
 
 // SHOW
 router.get("/mechanics/:id", function(req, res){
-    Service.findById(req.params.id, function(err, service){
-        if (err) {
-            console.log(err);
-            res.redirect("/");
-        } else {
-            res.render("services/show", {service: service});
-        }
-    });
+    Service.findById(req.params.id)
+        .populate("author.id")
+        .exec(function(err, service){
+            if (err) {
+                console.log(err);
+                res.redirect("/");
+            } else {
+                res.render("services/show", {service: service});
+                console.log(service);
+            }
+        });
+
+    // Service.findById(req.params.id, function(err, service){
+    //     if (err) {
+    //         console.log(err);
+    //         res.redirect("/");
+    //     } else {
+    //         res.render("services/show", {service: service});
+    //     }
+    // });
 });
 
 // DESTROY (checkOwnership later)
