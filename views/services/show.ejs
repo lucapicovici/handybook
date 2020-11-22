@@ -31,6 +31,17 @@
                                 <p><%= service.about %></p>
                             </div>
                             <p class="ad-title">About seller</p>
+
+                            <% if (user && service.author.id.equals(user._id)) { %>
+                            <div style="display: flex; justify-content: flex-end; align-items: center;">
+                                <a href="/mechanics/<%= service._id %>/edit" class="btn btn-success" style="height: 40px;">Edit</a>
+    
+                                <form class="delete-form" action="/mechanics/<%= service._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger" style="height: 40px; margin-left: 10px;">Delete</button>
+                                </form>
+                            </div>
+                            <% } %>
+
                             <hr>
                             <div class="ad-article-info">
                                 <a href="#">

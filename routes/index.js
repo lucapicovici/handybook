@@ -5,25 +5,25 @@ var express  = require("express"),
 var Service = require("../models/service.js");
 
 router.get("/", function(req, res){
-    Service.create({
-        author: {
-            id: "5fb93e80e70df7106cdf2334",
-            name: "Cosmin SRL"
-        },
-        title: "Aici va fi un titlu",
-        about: "Pls help i need money i'm undawateh",
-        hourlyRate: "$69/h",
-        rating: 5,
-        photos: [
-            {src: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"}
-        ]
-    }, function(err, service) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Created " + service.author.name);
-        }
-    });
+    // Service.create({
+    //     author: {
+    //         id: "5fb93e80e70df7106cdf2334",
+    //         name: "Cosmin SRL"
+    //     },
+    //     title: "Aici va fi un titlu",
+    //     about: "Pls help i need money i'm undawateh",
+    //     hourlyRate: "$69/h",
+    //     rating: 5,
+    //     photos: [
+    //         {src: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"}
+    //     ]
+    // }, function(err, service) {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         console.log("Created " + service.author.name);
+    //     }
+    // });
 
     Service.find({}, function(err, services){
         if (err) {
@@ -66,7 +66,7 @@ router.post("/mechanics", isLoggedIn, function(req, res){
 });
 
 // EDIT
-router.get("/mechanics/:id/edit", isLoggedIn, function(req, res){
+router.get("/mechanics/:id/edit", isLoggedIn, checkServiceOwnership, function(req, res){
     Service.findById(req.params.id, function(err, service){
         if (err) {
             console.log(err);
@@ -77,7 +77,7 @@ router.get("/mechanics/:id/edit", isLoggedIn, function(req, res){
 });
 
 // UPDATE (checkOwnership later)
-router.put("/mechanics/:id", function(req, res){
+router.put("/mechanics/:id", isLoggedIn, checkServiceOwnership, function(req, res){
     var formData = req.body.service;
     var newService = {
         author: {
@@ -113,17 +113,18 @@ router.get("/mechanics/:id", function(req, res){
 });
 
 // DESTROY (checkOwnership later)
-router.delete("/mechanics/:id", function(req, res){
+router.delete("/mechanics/:id", isLoggedIn, checkServiceOwnership, function(req, res){
 	Service.findByIdAndRemove(req.params.id, function(err, service){
 		if (err) {
 			res.redirect("/mechanics");
 		} else {
-			Comment.deleteMany({_id: {$in: service.comments}}, function(err){
-				if (err) {
-					console.log(err);
-				}
-				res.redirect("/mechanics");
-			});
+			// Comment.deleteMany({_id: {$in: service.comments}}, function(err){
+			// 	if (err) {
+			// 		console.log(err);
+			// 	}
+			// 	res.redirect("/mechanics");
+            // });
+            res.redirect("/");
 		}
 	});
 });
@@ -139,5 +140,28 @@ function isLoggedIn(req, res, next){
     }
     res.redirect("/user/login");
 };
+
+function checkServiceOwnership(req, res, next) {
+    if (req.isAuthenticated()) {
+		Service.findById(req.params.id, function(err, service){
+			if (err || !service) {
+				console.log(err);
+				alert("Service not found");
+				res.redirect("back");
+			} else {
+				// Does user own the service?
+				if (service.author.id.equals(req.user._id)) {
+					next();
+				} else {
+					console.log("You don't have permission to do that!");
+					res.redirect("back");
+				}
+			}
+		});
+	} else {
+		console.log("You need to be logged in to do that.");
+		res.redirect("back");
+	}
+}
 
 module.exports = router;
