@@ -423,6 +423,7 @@
 .card-info .article-info img {
   vertical-align: middle;
   border-radius: 50%;
+  width: 30px;
   height: 30px;
 }
 
@@ -474,6 +475,123 @@ article a:hover {
   .col-sm-3 {
     width: 25%;
     float: left;
+  }
+}
+
+.ad-page {
+  height: 30vh !important;
+}
+
+.ad-card {
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0 32px 44px -24px rgba(0, 0, 0, 0.23), 0 20px 25px 0px rgba(0, 0, 0, 0.12), 0 15px 10px -10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 32px 44px -24px rgba(0, 0, 0, 0.23), 0 20px 25px 0px rgba(0, 0, 0, 0.12), 0 15px 10px -10px rgba(0, 0, 0, 0.2);
+}
+
+.ad-card .ad-article-info {
+  margin-top: 30px;
+}
+
+.ad-card .ad-article-info a {
+  color: #333 !important;
+  opacity: 1 !important;
+}
+
+.ad-card .ad-article-info img {
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.ad-card .ad-article-info span {
+  margin-left: 5px;
+}
+
+.ad-card .ad-article-info .ad-rating {
+  color: #f90;
+}
+
+.ad-card .ad-card-info {
+  padding: 2rem;
+}
+
+.ad-card .ad-card-info hr {
+  border-top: 1px solid #dcdcdc;
+}
+
+.ad-card .ad-card-info .ad-rating {
+  float: right;
+  margin-top: 10px;
+}
+
+.ad-card .ad-card-info a img {
+  width: 50px;
+}
+
+.ad-card .ad-card-info a span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.ad-card .ad-card-title {
+  padding: 1rem 2rem 0;
+}
+
+.ad-card .ad-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.ad-card .ad-promo p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  padding: 12px 0;
+}
+
+.ad-card .ad-cover {
+  width: 100%;
+  max-height: 450px;
+  overflow: hidden;
+}
+
+.ad-card .ad-cover img {
+  width: 100%;
+}
+
+.article-bg {
+  height: 150px;
+  overflow: hidden;
+}
+
+.article-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.article-info .ad-rating {
+  margin-top: 5px;
+  color: #f90;
+}
+
+.article-content {
+  min-height: 70px;
+}
+
+@media (max-width: 768px) {
+  .ad-card .ad-card-info .ad-rating {
+    margin: 10px;
+    display: block;
+    float: none;
+    text-align: center;
+  }
+  .ad-card .ad-card-info .ad-rating span {
+    margin: 0;
   }
 }
 /*# sourceMappingURL=app.css.map */

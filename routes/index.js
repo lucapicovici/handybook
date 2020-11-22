@@ -5,9 +5,14 @@ router.get("/", function(req, res){
     res.render("index");
 });
 
+router.get("/ad", function(req, res){
+    res.render("ad");
+});
+
 router.get("/acp", isLoggedIn, function(req, res){
     res.render("acp/index");
 });
+
 
 function isLoggedIn(req, res, next){
     if (req.isAuthenticated()) {
