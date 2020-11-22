@@ -24,6 +24,16 @@
         }
     }
     .ad-card-info {
+        .info-desc {
+            display: flex;
+            justify-content: space-between;
+            span {
+                .price-ads {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+        }
         hr {
             border-top: 1px solid #dcdcdc;
         }
@@ -81,6 +91,7 @@
 .article-content {
     min-height: 70px;
 }
+
 @media (max-width: 768px) {
     .fac-card .ad-card-info .ad-rating {
         margin: 10px;
