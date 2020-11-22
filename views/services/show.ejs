@@ -26,7 +26,13 @@
                             <img src="<%= service.photos[0].src %>">
                         </div>
                         <div class="card-info ad-card-info">
-                            <p class="ad-title">Service offer description</p>
+                            <div class="info-desc">
+                                <p class="ad-title">Service offer description</p>
+                                <span>
+                                    <span>STARTING AT</span>
+                                    <span class="price-ads">€ <%= service.hourlyRate %>/h</span>
+                                </span>
+                            </div>
                             <div class="">
                                 <p><%= service.about %></p>
                             </div>
@@ -68,105 +74,46 @@
                     </article>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <article class="blog-grid-itm__text">
-                        <div class="article-bg">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="article-info">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                                    <span>Cosmin</span>
-                                </a>
-                                <span class="ad-rating">
-                                    <i class="fas fa-star"></i>
-                                    <span>3.5/5</span>
-                                </span>
-                            </div>
-                            <a href="#">
-                                <h4>Grafician caramida</h4>
-                            </a>
-                            <div class="article-content">
-                                <a href="#">
-                                    <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
+            <!-- AICI IL BAGI IN FOREACH LIMITA DE 3 -->
+            <% services.forEach(function(service){ %>
+                <div class="col-md-3">
+                    <div class="card">
+                        <article class="blog-grid-itm__text">
+                            <div class="article-bg">
+                                <a href="/mechanics/<%= service._id %>">
+                                    <img src = <%= service.photos[0].src %>>
                                 </a>
                             </div>
-                            <span class="author-price">$69/h</span>
-                            <span class="author-text">STARTING AT</span>
-                        </div>
-                    </article>
+                            <div class="card-info">
+                                <div class="article-info">
+                                    <a href="/mechanics/<%= service._id %>">
+                                        <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
+                                        <span><%= service.author.name %></span>
+                                    </a>
+                                    <span class="ad-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>3.5/5</span>
+                                    </span>
+                                </div>
+                                <a href="/mechanics/<%= service._id %>">
+                                    <div class="fix-menu-title">
+                                        <h4><%= service.title %></h4>
+                                    </div>
+                                </a>
+                                <div class="article-content">
+                                    <a href="/mechanics/<%= service._id %>">
+                                        <p><%= service.about %></p>
+                                    </a>
+                                </div>
+                                <span class="author-price">€<%= service.hourlyRate %>/h</span>
+                                <span class="author-text">STARTING AT</span>
+                            </div>
+                        </article>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <article class="blog-grid-itm__text">
-                        <div class="article-bg">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="article-info">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                                    <span>Cosmin</span>
-                                </a>
-                                <span class="ad-rating">
-                                    <i class="fas fa-star"></i>
-                                    <span>3.5/5</span>
-                                </span>
-                            </div>
-                            <a href="#">
-                                <h4>Grafician caramida</h4>
-                            </a>
-                            <div class="article-content">
-                                <a href="#">
-                                    <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                                </a>
-                            </div>
-                            <span class="author-price">$69/h</span>
-                            <span class="author-text">STARTING AT</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <article class="blog-grid-itm__text">
-                        <div class="article-bg">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="article-info">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                                    <span>Cosmin</span>
-                                </a>
-                                <span class="ad-rating">
-                                    <i class="fas fa-star"></i>
-                                    <span>3.5/5</span>
-                                </span>
-                            </div>
-                            <a href="#">
-                                <h4>Grafician caramida</h4>
-                            </a>
-                            <div class="article-content">
-                                <a href="#">
-                                    <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                                </a>
-                            </div>
-                            <span class="author-price">$69/h</span>
-                            <span class="author-text">STARTING AT</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
+            <% }); %>
+            <!-- AICI IL BAGI IN FOREACH -->
+      
             
         </div>
     </div>
@@ -183,140 +130,44 @@
         <div class="row">
 
 <!-- AICI IL BAGI IN FOREACH -->
-            <div class="col-md-3">
-                <div class="card">
-                    <article class="blog-grid-itm__text">
-                        <div class="article-bg">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                            </a>
-                        </div>
-                        <div class="card-info">
-                            <div class="article-info">
-                                <a href="#">
-                                    <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                                    <span>Cosmin</span>
-                                </a>
-                                <span class="ad-rating">
-                                    <i class="fas fa-star"></i>
-                                    <span>3.5/5</span>
-                                </span>
-                            </div>
-                            <a href="#">
-                                <h4>Grafician caramida</h4>
-                            </a>
-                            <div class="article-content">
-                                <a href="#">
-                                    <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                                </a>
-                            </div>
-                            <span class="author-price">$69/h</span>
-                            <span class="author-text">STARTING AT</span>
-                        </div>
-                    </article>
+<% services.forEach(function(service){ %>
+    <div class="col-md-3">
+        <div class="card">
+            <article class="blog-grid-itm__text">
+                <div class="article-bg">
+                    <a href="/mechanics/<%= service._id %>">
+                        <img src = <%= service.photos[0].src %>>
+                    </a>
                 </div>
-            </div>
+                <div class="card-info">
+                    <div class="article-info">
+                        <a href="/mechanics/<%= service._id %>">
+                            <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
+                            <span><%= service.author.name %></span>
+                        </a>
+                        <span class="ad-rating">
+                            <i class="fas fa-star"></i>
+                            <span>3.5/5</span>
+                        </span>
+                    </div>
+                    <a href="/mechanics/<%= service._id %>">
+                        <div class="fix-menu-title">
+                            <h4><%= service.title %></h4>
+                        </div>
+                    </a>
+                    <div class="article-content">
+                        <a href="/mechanics/<%= service._id %>">
+                            <p><%= service.about %></p>
+                        </a>
+                    </div>
+                    <span class="author-price">€<%= service.hourlyRate %>/h</span>
+                    <span class="author-text">STARTING AT</span>
+                </div>
+            </article>
+        </div>
+    </div>
+<% }); %>
 <!-- AICI IL BAGI IN FOREACH -->
-<div class="col-md-3">
-    <div class="card">
-        <article class="blog-grid-itm__text">
-            <div class="article-bg">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                </a>
-            </div>
-            <div class="card-info">
-                <div class="article-info">
-                    <a href="#">
-                        <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                        <span>Cosmin</span>
-                    </a>
-                    <span class="ad-rating">
-                        <i class="fas fa-star"></i>
-                        <span>3.5/5</span>
-                    </span>
-                </div>
-                <a href="#">
-                    <h4>Grafician caramida</h4>
-                </a>
-                <div class="article-content">
-                    <a href="#">
-                        <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                    </a>
-                </div>
-                <span class="author-price">$69/h</span>
-                <span class="author-text">STARTING AT</span>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-md-3">
-    <div class="card">
-        <article class="blog-grid-itm__text">
-            <div class="article-bg">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                </a>
-            </div>
-            <div class="card-info">
-                <div class="article-info">
-                    <a href="#">
-                        <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                        <span>Cosmin</span>
-                    </a>
-                    <span class="ad-rating">
-                        <i class="fas fa-star"></i>
-                        <span>3.5/5</span>
-                    </span>
-                </div>
-                <a href="#">
-                    <h4>Grafician caramida</h4>
-                </a>
-                <div class="article-content">
-                    <a href="#">
-                        <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                    </a>
-                </div>
-                <span class="author-price">$69/h</span>
-                <span class="author-text">STARTING AT</span>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-md-3">
-    <div class="card">
-        <article class="blog-grid-itm__text">
-            <div class="article-bg">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                </a>
-            </div>
-            <div class="card-info">
-                <div class="article-info">
-                    <a href="#">
-                        <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                        <span>Cosmin</span>
-                    </a>
-                    <span class="ad-rating">
-                        <i class="fas fa-star"></i>
-                        <span>3.5/5</span>
-                    </span>
-                </div>
-                <a href="#">
-                    <h4>Grafician caramida</h4>
-                </a>
-                <div class="article-content">
-                    <a href="#">
-                        <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                    </a>
-                </div>
-                <span class="author-price">$69/h</span>
-                <span class="author-text">STARTING AT</span>
-            </div>
-        </article>
-    </div>
-</div>
-
 
 
         </div>

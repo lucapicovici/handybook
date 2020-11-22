@@ -20,6 +20,17 @@ router.get("/profile/:id", isLoggedIn, function(req, res){
     })
 });
 
+// EDIT
+router.get("/profile/:id/edit", isLoggedIn, function(req, res){
+    User.findById(req.params.id, function(err, user){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("ucp/edit", {user: user});
+        }
+    })
+});
+
 // Logout
 router.get("/logout", isLoggedIn, function(req, res){
     req.logout();

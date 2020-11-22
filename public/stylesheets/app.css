@@ -413,6 +413,17 @@
   padding: 1rem 1rem 2rem 1rem;
 }
 
+.card-info .fix-menu-title {
+  min-height: 70px;
+}
+
+.card-info .fix-menu-title h4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .card-info .article-info a {
   color: #333 !important;
 }
