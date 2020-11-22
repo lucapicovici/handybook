@@ -80,14 +80,16 @@
                                     </span>
                                 </div>
                                 <a href="/mechanics/<%= service._id %>">
-                                    <h4><%= service.title %></h4>
+                                    <div class="fix-menu-title">
+                                        <h4><%= service.title %></h4>
+                                    </div>
                                 </a>
                                 <div class="article-content">
                                     <a href="/mechanics/<%= service._id %>">
                                         <p><%= service.about %></p>
                                     </a>
                                 </div>
-                                <span class="author-price"><%= service.hourlyRate %></span>
+                                <span class="author-price">€<%= service.hourlyRate %>/h</span>
                                 <span class="author-text">STARTING AT</span>
                             </div>
                         </article>
@@ -133,14 +135,16 @@
                                 </span>
                             </div>
                             <a href="/mechanics/<%= service._id %>">
-                                <h4><%= service.title %></h4>
+                                <div class="fix-menu-title">
+                                    <h4><%= service.title %></h4>
+                                </div>
                             </a>
                             <div class="article-content">
                                 <a href="/mechanics/<%= service._id %>">
                                     <p><%= service.about %></p>
                                 </a>
                             </div>
-                            <span class="author-price"><%= service.hourlyRate %></span>
+                            <span class="author-price">€<%= service.hourlyRate %>/h</span>
                             <span class="author-text">STARTING AT</span>
                         </div>
                     </article>
@@ -148,107 +152,6 @@
             </div>
         <% }); %>
 <!-- AICI IL BAGI IN FOREACH -->
-<div class="col-md-3">
-    <div class="card">
-        <article class="blog-grid-itm__text">
-            <div class="article-bg">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                </a>
-            </div>
-            <div class="card-info">
-                <div class="article-info">
-                    <a href="#">
-                        <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                        <span>Cosmin</span>
-                    </a>
-                    <span class="ad-rating">
-                        <i class="fas fa-star"></i>
-                        <span>3.5/5</span>
-                    </span>
-                </div>
-                <a href="#">
-                    <h4>Grafician caramida</h4>
-                </a>
-                <div class="article-content">
-                    <a href="#">
-                        <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                    </a>
-                </div>
-                <span class="author-price">$69/h</span>
-                <span class="author-text">STARTING AT</span>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-md-3">
-    <div class="card">
-        <article class="blog-grid-itm__text">
-            <div class="article-bg">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                </a>
-            </div>
-            <div class="card-info">
-                <div class="article-info">
-                    <a href="#">
-                        <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                        <span>Cosmin</span>
-                    </a>
-                    <span class="ad-rating">
-                        <i class="fas fa-star"></i>
-                        <span>3.5/5</span>
-                    </span>
-                </div>
-                <a href="#">
-                    <h4>Grafician caramida</h4>
-                </a>
-                <div class="article-content">
-                    <a href="#">
-                        <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                    </a>
-                </div>
-                <span class="author-price">$69/h</span>
-                <span class="author-text">STARTING AT</span>
-            </div>
-        </article>
-    </div>
-</div>
-<div class="col-md-3">
-    <div class="card">
-        <article class="blog-grid-itm__text">
-            <div class="article-bg">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80">
-                </a>
-            </div>
-            <div class="card-info">
-                <div class="article-info">
-                    <a href="#">
-                        <img src="http://localhost/It-Labs/dist/img/cosmin-avatar.jpg">
-                        <span>Cosmin</span>
-                    </a>
-                    <span class="ad-rating">
-                        <i class="fas fa-star"></i>
-                        <span>3.5/5</span>
-                    </span>
-                </div>
-                <a href="#">
-                    <h4>Grafician caramida</h4>
-                </a>
-                <div class="article-content">
-                    <a href="#">
-                        <p>O sa-ti construiesc casa visurilor tale din boltari si 3 kg de ciment, oh da da da.</p>
-                    </a>
-                </div>
-                <span class="author-price">$69/h</span>
-                <span class="author-text">STARTING AT</span>
-            </div>
-        </article>
-    </div>
-</div>
-
-
 
         </div>
     </div>

@@ -19,34 +19,30 @@
                 <div class="fac-card">
                     <article class="blog-grid-itm__text">
                         <div class="card-info ad-card-title">
-                            <p class="ad-title">Edit your service</p>
+                            <p class="ad-title">Edit your profile</p>
                         </div>
                         <div class="card-info ad-card-info">
 
-                            <form action="/mechanics/<%= service._id %>?_method=PUT" method="POST">
+                            <form action="#" method="POST">
                                 <div class="form-group">
-                                  <label for="author">Author name</label>
+                                  <label for="username">Username</label>
                                   <input type="text" class="form-control" id="author" name="service[author]" value="<%= service.author.name %>" placeholder="Author name" required>
                                 </div>
                                 <div class="form-group">
-                                  <label for="title">Service title</label>
+                                  <label for="name">Name</label>
                                   <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="about">Describe your service</label>
-                                    <textarea class="form-control" id="about" rows="7" name="service[about]" placeholder="About" required><%= service.about %></textarea>
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="hourlyRate">Hourly rate in € (optional)</label>
-                                    <input type="number" class="form-control" id="hourlyRate" name="service[hourlyRate]" value="<%= service.hourlyRate %>" placeholder="15"
-                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    type = "number"
-                                    maxlength = "3"
-                                    >
+                                    <label for="profession">Profession</label>
+                                    <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="photo">Photo</label>
-                                    <input type="text" class="form-control" id="photo" name="service[photo]" value="<%= service.photos[0].src %>" placeholder="Photo URL" required>
+                                    <label for="skills">Skills</label>
+                                    <input type="text" class="form-control" id="title" name="service[title]" value="<%= service.title %>" placeholder="Title" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form>
