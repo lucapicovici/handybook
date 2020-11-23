@@ -20,14 +20,14 @@
                 <div class="fac-card">
                     <article class="blog-grid-itm__text">
                         <div class="card-info ad-card-title">
-                            <p class="ad-title"><%= service.title %></p>
+                            <p class="ad-text-title"><%= service.title %></p>
                         </div>
                         <div class="ad-cover">
                             <img src="<%= service.photos[0].src %>">
                         </div>
                         <div class="card-info ad-card-info">
                             <div class="info-desc">
-                                <p class="ad-title">Service offer description</p>
+                                <p class="ad-text-title">Service offer description</p>
                                 <span>
                                     <span>STARTING AT</span>
                                     <span class="price-ads">€ <%= service.hourlyRate %>/h</span>
@@ -36,7 +36,7 @@
                             <div class="">
                                 <p><%= service.about %></p>
                             </div>
-                            <p class="ad-title">About seller</p>
+                            <p class="ad-text-title">About seller</p>
 
                             <% if (user && service.author.id.equals(user._id)) { %>
                             <div style="display: flex; justify-content: flex-end; align-items: center;">
